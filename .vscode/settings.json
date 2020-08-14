@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6712f27e-7c42-467a-9fc1-93a2e4790dd9/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/bookevents",
+    "appService.deploySubpath": "publish"
+}
