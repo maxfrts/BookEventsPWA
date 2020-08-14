@@ -1,5 +1,5 @@
 {
-  "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\bookEventsPWA\\bookEventsPWA.csproj",
+  "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\BookEventsPWA\\bookEventsPWA.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20521,37 +20521,37 @@
   "RootNamespace": "bookEventsPWA",
   "Documents": [
     {
-      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\bookEventsPWA\\Views\\Shared\\Error.cshtml",
+      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\BookEventsPWA\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\bookEventsPWA\\Views\\Home\\Privacy.cshtml",
+      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\BookEventsPWA\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\bookEventsPWA\\Views\\Home\\Index.cshtml",
+      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\BookEventsPWA\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\bookEventsPWA\\Views\\_ViewImports.cshtml",
+      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\BookEventsPWA\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\bookEventsPWA\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\BookEventsPWA\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\bookEventsPWA\\Views\\_ViewStart.cshtml",
+      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\BookEventsPWA\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\bookEventsPWA\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "e:\\RecoveryMax\\Max\\FIAP\\PWA\\appFinal\\BookEventsPWA\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }

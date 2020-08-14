@@ -1,0 +1,1 @@
+var blogService = require('./event-service.js');
