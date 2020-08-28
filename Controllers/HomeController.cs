@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using bookEventsPWA.Models;
+using bookEventsPWA.Services;
 
 namespace bookEventsPWA.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IEventService _eventService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IEventService eventService)
         {
-            _logger = logger;
+            _eventService = eventService;
         }
 
         public IActionResult Index()
@@ -32,6 +33,12 @@ namespace bookEventsPWA.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public JsonResult AvailableEvents()
+        {
+            var events = _eventService.GetAvailableEvents();
+            return Json(events);
         }
     }
 }

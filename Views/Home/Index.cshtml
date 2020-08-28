@@ -3,6 +3,18 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Eventos nas Proximidades</h1>
 </div>
+
+<div class="event-list card-columns" id="eventlist"></div>
+
+<script id="event-card" type="text/template">
+    <div class="card body-cine">
+        <img class="card-img" src="/{{ThumbLocation}}">
+        <div class="card-body">
+            <h5 class="card-title">{{Description}}</h5>
+            <p class="cardtext">{{Summary}}</p>
+            <button class="btn btnprimary">Detalhes</button>
+        </div>
+    </div>
+</script>

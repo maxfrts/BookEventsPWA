@@ -4,6 +4,8 @@ namespace bookEventsPWA.Models
 {
     public class EventModel
     {
+        public int EventId { get; set; }
+        
         public EventTypeModel EventType { get; set; }
 
         public DateTime EventDate {get; set;}
@@ -14,8 +16,10 @@ namespace bookEventsPWA.Models
 
         public int TicketsForSale {get; set;}
 
-        public string Location {get;set;}
+        public LocationModel Location {get;set;}
 
         public double TicketPrice {get; set;}
+
+        public string ThumbLocation {get; set;}
     }
 }

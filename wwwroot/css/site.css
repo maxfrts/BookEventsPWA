@@ -69,3 +69,12 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.card-img {
+  width: 300px;
+  height: 450px;
+}
+
+.body-cine{
+  width: 301px !important;
+}
