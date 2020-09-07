@@ -1,5 +1,6 @@
 using System;
-
+using System.Collections.Generic;
+using bookEventsPWA.Extensions;
 namespace bookEventsPWA.Models
 {
     public class EventModel
@@ -7,6 +8,8 @@ namespace bookEventsPWA.Models
         public int EventId { get; set; }
         
         public EventTypeModel EventType { get; set; }
+
+        public List<EventCategoryModel> CategoryList { get; set; }
 
         public DateTime EventDate {get; set;}
 
@@ -21,5 +24,7 @@ namespace bookEventsPWA.Models
         public double TicketPrice {get; set;}
 
         public string ThumbLocation {get; set;}
+
+        public int Duration {get; set;}//minutes
     }
 }

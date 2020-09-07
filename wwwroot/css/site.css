@@ -75,6 +75,11 @@ body {
   height: 450px;
 }
 
+.card-img-detail {
+  width: 200px;
+  height: 325px;
+}
+
 .body-cine{
   width: 301px !important;
 }

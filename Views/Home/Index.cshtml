@@ -6,15 +6,83 @@
     <h1 class="display-4">Eventos nas Proximidades</h1>
 </div>
 
+<div class="alert alert-info show" id="connection-status"></div>
+
 <div class="event-list card-columns" id="eventlist"></div>
 
+<div class="modal fade" id="event-modal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div id="event-modal-body" class="modal-content">
+        </div>
+    </div>
 <script id="event-card" type="text/template">
     <div class="card body-cine">
         <img class="card-img" src="/{{ThumbLocation}}">
         <div class="card-body">
             <h5 class="card-title">{{Description}}</h5>
-            <p class="cardtext">{{Summary}}</p>
-            <button class="btn btnprimary">Detalhes</button>
+            <p class="cardtext">{{dataevento}}</p>
+            <button onclick="pageEvents.loadEvent('{{EventId}}')" class="btn btn-primary" data-toggle="modal" data-target="#event-modal">Detalhes</button>
+        </div>
+    </div>
+</script>
+
+<script id="event-modal-body-template" type="text/template">
+    
+    <div class="modal-header">
+        <h5 class="modal-title" id="eventModalLabel">{{Description}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <img class="card-img-detail" src="/{{ThumbLocation}}">
+                </div>
+                <div class="col-8">
+                    <h5>{{Description}}</h5>
+                    <div class="row">
+                        <div class="col">
+                            Categoria: {{CategoryList}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Duração: {{Duration}} minutos
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Local: {{Location}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p>{{Summary}}</p>
+    </div>
+    <div class="modal-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="download-response"></div>
+                    <div id="status-download" style="display:none;">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <div class="text-success">
+                            <p>done!</p>
+                            <button class="btn btn-success" onclick="pageEvents.loadBlogPost('{{Link}}');">ler!</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="pageEvents.setBackgroundFetch({{EventId}});" class="btn btn-primary">Salvar para ver offline</button>
+                </div>
+            </div>
         </div>
     </div>
 </script>

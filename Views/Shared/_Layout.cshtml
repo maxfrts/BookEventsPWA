@@ -12,6 +12,13 @@
     <script src="~/js/site.js"></script>
 </head>
 <body>
+    <div style="display:none; padding: 5px; text-align:center;" id="install-container">
+        <button onclick="pageEvents.tryAddHomeScreen();" class="btn-link no-style">Clique aqui</button>
+        e adicione este app na sua home!
+    </div>
+    <div id="notification-subscribe-section" style="display:none; padding: 5px; text-align:center;">
+        <button class="btn-link no-style" onclick="pageEvents.requestPushPermission();">Clique aqui</button> para receber notificações quando novos eventos forem cadastrados
+    </div>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -46,6 +53,9 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/localforage/localforage.min.js"></script>
+    <script src="~/lib/localforage/localforage-getitems.js"></script>
+    <script src="~/lib/localforage/localforage-setitems.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
