@@ -9,7 +9,6 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
         return new Promise(function (resolve, reject) {
             fetch(url + link)
                 .then(function (data) {
-
                     var resolveSuccess = function () {
                         resolve('The connection is OK, showing latest results');
                     };
@@ -24,11 +23,9 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
                             clientStorage.addEvents(jsonData).then(resolveSuccess);
                         });
                     }
-
                 }).catch(function (e) {
                     resolve('No connection, showing offline results');
                 });
-
             setTimeout(function () { resolve('The connection is hanging, showing offline results'); }, 800);
         });
     }

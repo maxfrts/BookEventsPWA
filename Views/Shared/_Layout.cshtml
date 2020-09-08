@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="description" content="BookEvents in a PWA">
     <title>@ViewData["Title"] - BookEventsPWA</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -19,6 +21,7 @@
     <div id="notification-subscribe-section" style="display:none; padding: 5px; text-align:center;">
         <button class="btn-link no-style" onclick="pageEvents.requestPushPermission();">Clique aqui</button> para receber notificações quando novos eventos forem cadastrados
     </div>
+    <div class="alert alert-info show" id="connectionstatus"></div>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">

@@ -28,7 +28,7 @@ define([], function () {
 
             var keyValuePair = [];
 
-            posts.map(function (item) {
+            events.map(function (item) {
                 keyValuePair.push({ key: String(item.eventId), value: item });
             })
 
@@ -60,9 +60,9 @@ define([], function () {
                 var keys = keys.splice(Math.max(0, start), limitAdjusted);
 
                 eventInstance.getItems(keys).then(function (results) {
-                    var posts = Object.keys(results).map(function (k) { return results[k] }).reverse();
-                    oldestEventId = String(posts[posts.length - 1].postId);
-                    resolve(posts);
+                    var events = Object.keys(results).map(function (k) { return results[k] }).reverse();
+                    oldestEventId = String(events[events.length - 1].eventId);
+                    resolve(events);
                 });
             });
 
