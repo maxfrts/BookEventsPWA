@@ -6,7 +6,7 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="description" content="BookEvents in a PWA">
     <meta name="theme-color" content="#2196f3"/>
-    <link rel="apple-touch-icon" href="~/img/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="~/img/icons/apple-touch-icon.png">
     <title>@ViewData["Title"] - BookEventsPWA</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -40,13 +40,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#nearEvents" onclick="pageEvents.getAvailableEventByLocation()">Eventos por proximidade</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <input type="hidden" id="connected"/>
-    <input type="hidden" id="userLocation"/>
+    <input type="hidden" id="userLatitude"/>
+    <input type="hidden" id="userLongitude"/>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

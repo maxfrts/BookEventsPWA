@@ -1,5 +1,6 @@
 define(['./template.js', './clientStorage.js'], function (template, clientStorage) {
     var eventUrl = '/Home/AvailableEvents/';
+    var eventLocationUrl = '/Home/AvailableEventsByLocation/?userLatitude=lat&userLongitude=lon';
     var eventByIdUrl = '/Home/LoadEvent/?id=';
 
     function fetchPromiseEventos(url) {
@@ -24,6 +25,7 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
     }
 
     function loadAvailableEvents() {
+        $("#eventlist").html("");
         fetchPromiseEventos(eventUrl)
         .then(function (status) {
                 $('#connection-status').html(status);
@@ -61,11 +63,29 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
                     console.log("falha ao obter evento");
                 } else {
                     clientStorage.addEvent(data);
+                    alert("Evento armazenado com sucesso.");
                 }
             });
     }
+
+    function loadAvailableEventsByLocation(latitude, longitude) {
+        $("#eventlist").html("");
+        var url = eventLocationUrl.replace('lat', latitude).replace('lon', longitude);
+        fetch(url)
+        .then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                if (!data) {
+                    console.log("falha ao obter eventos por proximidade.");
+                } else {
+                    template.appendEventList(data);
+                }
+            });
+    }
+
     return {
         loadAvailableEvents :loadAvailableEvents,
+        loadAvailableEventsByLocation :loadAvailableEventsByLocation,
         loadEventDetail: loadEventDetail,
         saveEventInCache: saveEventInCache
     }

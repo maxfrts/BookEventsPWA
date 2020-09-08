@@ -68,7 +68,8 @@ define([], function(){
             // check if geolocation is supported/enabled on current browser
             navigator.geolocation.getCurrentPosition(
                 function success(position) {
-                    return( { latitude: position.coords.latitude, longitude: position.coords.longitude });
+                    $("#userLatitude").val(position.coords.latitude);
+                    $("#userLongitude").val(position.coords.longitude);
                 },
                 function error(error_message) {
                     // for when getting location results in an error

@@ -40,9 +40,9 @@ namespace bookEventsPWA.Controllers
             return Json(events);
         }
 
-        public JsonResult AvailableEventsByLocation(string userLocation)
+        public JsonResult AvailableEventsByLocation(string userLatitude, string userLongitude)
         {
-            var events = _eventService.GetAvailableEvents();
+            var events = _eventService.GetAvailableEventsByLocation(userLatitude, userLongitude);
             return Json(events);
         }
 
@@ -91,33 +91,5 @@ namespace bookEventsPWA.Controllers
 
             return NoContent();
         }
-
-        // private bool CheckDistance(string eventLatitute, string eventLongitude,string userLatitude,string userLongitude, int metros){
-        //     var uCoord = new GeoCoordinate(userLatitude, userLongitude);
-        //     var eCoord = new GeoCoordinate(eventLatitute, eventLongitude);
-
-        //     var distance = uCoord.GetDistanceTo(eCoord);
-        //     if(distance < 5000){
-        //         return true;
-        //     } else{
-        //         return false;
-        //     }
-        // }
-         private bool CheckDistance(double eventLatitute, double eventLongitude,double userLatitude,double userLongitude)
-    {
-        var d1 = eventLatitute * (Math.PI / 180.0);
-        var num1 = eventLongitude * (Math.PI / 180.0);
-        var d2 = userLatitude * (Math.PI / 180.0);
-        var num2 = userLongitude * (Math.PI / 180.0) - num1;
-        var d3 = Math.Pow(Math.Sin((d2 - d1) / 2.0), 2.0) +
-                 Math.Cos(d1) * Math.Cos(d2) * Math.Pow(Math.Sin(num2 / 2.0), 2.0);
-        var distance = 6376500.0 * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
-
-        if (distance < 5000){
-            return true;
-        }
-
-        return false;
-    }
     }
 }

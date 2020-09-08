@@ -6,6 +6,7 @@ namespace bookEventsPWA.Services
     public interface IEventService
     {
         List<EventModel> GetAvailableEvents();
+        List<EventModel> GetAvailableEventsByLocation(string userLatitude, string userLongitude);
         List<EventModel> GetAvailableEventsByTypeAndCategory(EventTypeModel type, EventCategoryModel category);
         List<EventModel> GetAvailableEventsByCategory(EventCategoryModel category);
         List<EventModel> GetAvailableEventsByType(EventTypeModel type);

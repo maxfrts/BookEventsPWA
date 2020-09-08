@@ -81,15 +81,17 @@ window.pageEvents = {
     getGeolocation: function(){
         localization.getGeolocation();
     },
+    getCoordinates: function(){
+        localization.getCoordinates();
+    },
     saveEventInCache: function(eventId){
         eventService.saveEventInCache(eventId);
+    },
+    getAvailableEventByLocation(){
+        eventService.loadAvailableEventsByLocation($("#userLatitude").val(), $("#userLongitude").val());
     }
 };
 
-function getCoordinates(){
-    localization.getCoordinates();
-};
-
 eventService.loadAvailableEvents();
-$("#userLocation").val(getCoordinates());
+pageEvents.getCoordinates();
 //testPushService.bindSendNotification();
