@@ -2,6 +2,7 @@ var eventService = require('./event-service.js');
 var testPushService = require('./testPushService.js');
 var serviceWorker = require('./swRegister.js');
 var localization = require('./localization.js');
+
 var eventByIdUrl = '/Home/LoadEvent/?id=';
 
 //window events
