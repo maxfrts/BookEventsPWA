@@ -3,7 +3,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Eventos nas Proximidades</h1>
+    <h1 id="homeText" class="display-4">Eventos Disponiveis</h1>
 </div>
 
 <div class="alert alert-info show" id="connection-status"></div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-5">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" onclick="pageEvents.setBackgroundFetch({{EventId}});" class="btn btn-primary">Salvar para ver offline</button>
+                    <button type="button" onclick="pageEvents.saveEventInCache({{EventId}});" class="btn btn-primary">Salvar para ver offline</button>
                 </div>
             </div>
         </div>

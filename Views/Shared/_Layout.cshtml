@@ -17,11 +17,11 @@
 </head>
 <body>
     <div style="display:none; padding: 5px; text-align:center;" id="install-container">
-        <button onclick="pageEvents.tryAddHomeScreen();" class="btn-link no-style">Clique aqui</button>
+        <button onclick="pageEvents.tryAddHomeScreen();" class="btn btn-primary">Clique aqui</button>
         e adicione este app na sua home!
     </div>
     <div id="notification-subscribe-section" style="display:none; padding: 5px; text-align:center;">
-        <button class="btn-link no-style" onclick="pageEvents.requestPushPermission();">Clique aqui</button> para receber notificações quando novos eventos forem cadastrados
+        <button class="btn btn-primary" onclick="pageEvents.requestPushPermission();">Clique aqui</button> para receber notificações quando novos eventos forem cadastrados
     </div>
     <div class="alert alert-info show" id="connectionstatus"></div>
     <header>
@@ -45,6 +45,8 @@
             </div>
         </nav>
     </header>
+    <input type="hidden" id="connected"/>
+    <input type="hidden" id="userLocation"/>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

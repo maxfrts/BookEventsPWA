@@ -1,6 +1,6 @@
 define([], function(){
 
-    var GOOGLE_MAP_KEY = '';//'AIzaSyDkokSgwFgLELGKOW5xxDVNhYNBCzJSo_c';
+    var GOOGLE_MAP_KEY = 'AIzaSyDkokSgwFgLELGKOW5xxDVNhYNBCzJSo_c';
 
     function ipLookUp() {
         $.ajax('http://ip-api.com/json')
@@ -63,8 +63,29 @@ define([], function(){
         }
     }
 
+    function getCoordinates() {
+        if ("geolocation" in navigator) {
+            // check if geolocation is supported/enabled on current browser
+            navigator.geolocation.getCurrentPosition(
+                function success(position) {
+                    return( { latitude: position.coords.latitude, longitude: position.coords.longitude });
+                },
+                function error(error_message) {
+                    // for when getting location results in an error
+                    console.log('An error has occured while retrieving location ' + error_message);
+                    ipLookUp();
+                });
+        } else {
+            // geolocation is not supported
+            // get your location some other way
+            console.log('geolocation is not enabled on this browser');
+            ipLookUp();
+        }
+    }
+
     return{
-        getGeolocation
+        getGeolocation: getGeolocation,
+        getCoordinates: getCoordinates,
     }
 
 });

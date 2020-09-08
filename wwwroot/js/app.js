@@ -80,8 +80,16 @@ window.pageEvents = {
     },
     getGeolocation: function(){
         localization.getGeolocation();
+    },
+    saveEventInCache: function(eventId){
+        eventService.saveEventInCache(eventId);
     }
 };
 
+function getCoordinates(){
+    localization.getCoordinates();
+};
+
 eventService.loadAvailableEvents();
+$("#userLocation").val(getCoordinates());
 //testPushService.bindSendNotification();

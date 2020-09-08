@@ -23,14 +23,13 @@ define([], function () {
         });
     }
 
-    function addEvents(events) {
+    function addEvent(event) {
         return new Promise(function (resolve, reject) {
 
             var keyValuePair = [];
 
-            events.map(function (item) {
-                keyValuePair.push({ key: String(item.eventId), value: item });
-            })
+            
+            keyValuePair.push({ key: String(event.eventId), value: event });
 
             keyValuePair = keyValuePair.sort(function (a, b) { return b.key - a.key });
 
@@ -75,7 +74,7 @@ define([], function () {
     }
 
     return {
-        addEvents: addEvents,
+        addEvent: addEvent,
         getEvents: getEvents,
         getOldestEventId: getOldestEventId,
         addEventDetail: addEventDetail,

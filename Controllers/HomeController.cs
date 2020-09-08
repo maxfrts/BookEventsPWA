@@ -39,6 +39,12 @@ namespace bookEventsPWA.Controllers
             var events = _eventService.GetAvailableEvents();
             return Json(events);
         }
+        
+        public JsonResult AvailableEventsByLocation(string userLocation)
+        {
+            var events = _eventService.GetAvailableEvents();
+            return Json(events);
+        }
 
         public JsonResult LoadEvent(int id)
         {
