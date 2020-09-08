@@ -8,18 +8,10 @@ define([], function () {
 
     function getEventDetail(eventId) {
         return new Promise(function (resolve, reject) {
-            eventInstance.getItem('#' + eventId)
+            eventInstance.getItem(eventId)
                 .then(function (text) {
                     resolve(text);
                 });
-        });
-    }
-    
-    function addEventDetail(eventId, text) {
-        return new Promise(function (resolve, reject) {
-            eventInstance.setItem('#' + eventId, text).then(function () {
-                resolve();
-            });
         });
     }
 
@@ -77,7 +69,6 @@ define([], function () {
         addEvent: addEvent,
         getEvents: getEvents,
         getOldestEventId: getOldestEventId,
-        addEventDetail: addEventDetail,
         getEventDetail: getEventDetail
     }
 });

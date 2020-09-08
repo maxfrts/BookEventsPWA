@@ -23,6 +23,29 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
             setTimeout(function () { resolve('A conexão está lenta, exibindo os resultados salvos');}, 8000);
         });
     }
+    function fetchPromiseEventDetail(url, eventId) {
+        return new Promise(function (resolve, reject) {
+            fetch(url)
+                .then(function (data) {    
+                    data.json().then(function(jsonData){
+
+                        if (!jsonData) {
+                            template.showEventDetailItem({});
+                        } else {
+                            template.showEventDetailItem(jsonData);
+                        }
+                        window.location = '#event' + eventId;
+                    });
+                }).catch(function (e) {
+                    clientStorage.getEventDetail(eventId).then(function (data)
+                    {
+                        template.showEventDetailItem(cachedDetail);
+                    });
+                });
+
+            setTimeout(function () { resolve('A conexão está lenta, exibindo os resultados salvos');}, 8000);
+        });
+    }
 
     function loadAvailableEvents() {
         $("#eventlist").html("");
@@ -41,7 +64,7 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
 
     function loadEventDetail(eventId) {
 
-        fetch(eventByIdUrl+eventId)
+        fetchPromiseEventDetail(eventByIdUrl+eventId, eventId)
         .then(function (response) {
                 return response.json();
             }).then(function (data) {
@@ -78,6 +101,7 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
                 if (!data) {
                     console.log("falha ao obter eventos por proximidade.");
                 } else {
+                    $("#homeText").html("Eventos por proximidade");
                     template.appendEventList(data);
                 }
             });
