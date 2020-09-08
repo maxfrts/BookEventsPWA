@@ -84,4 +84,4 @@ window.pageEvents = {
 };
 
 eventService.loadAvailableEvents();
-testPushService.bindSendNotification();
+//testPushService.bindSendNotification();
