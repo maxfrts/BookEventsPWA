@@ -34,12 +34,11 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
                         } else {
                             template.showEventDetailItem(jsonData);
                         }
-                        window.location = '#event' + eventId;
                     });
                 }).catch(function (e) {
                     clientStorage.getEventDetail(eventId).then(function (data)
                     {
-                        template.showEventDetailItem(cachedDetail);
+                        template.showEventDetailItem(data);
                     });
                 });
 
@@ -68,11 +67,6 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
         .then(function (response) {
                 return response.json();
             }).then(function (data) {
-                if (!data) {
-                    template.showEventDetailItem({});
-                } else {
-                    template.showEventDetailItem(data);
-                }
                 window.location = '#event' + eventId;
             });
     }
