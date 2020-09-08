@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using bookEventsPWA.Services;
+using bookEventsPWA.Store;
 
 namespace bookEventsPWA
 {
@@ -24,6 +25,9 @@ namespace bookEventsPWA
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+             services.AddPushSubscriptionStore(Configuration)
+                .AddPushNotificationService(Configuration);
+
             services.AddSingleton<IEventService, EventService>();
             services.AddControllersWithViews();
         }
@@ -45,6 +49,12 @@ namespace bookEventsPWA
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                PushSubscriptionContext context = serviceScope.ServiceProvider.GetService<PushSubscriptionContext>();
+                context.Database.EnsureCreated();
+            }
 
             app.UseAuthorization();
 
