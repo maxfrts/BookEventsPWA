@@ -34,15 +34,15 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
                         } else {
                             template.showEventDetailItem(jsonData);
                         }
+                        resolve('Conectado com sucesso, exibindo resultados atualizados.');
                     });
                 }).catch(function (e) {
                     clientStorage.getEventDetail(eventId).then(function (data)
                     {
                         template.showEventDetailItem(data);
                     });
+                    resolve('Sem conexão, exibindo os resultados salvos');
                 });
-
-            setTimeout(function () { resolve('A conexão está lenta, exibindo os resultados salvos');}, 8000);
         });
     }
 
@@ -62,11 +62,9 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
     }
 
     function loadEventDetail(eventId) {
-
         fetchPromiseEventDetail(eventByIdUrl+eventId, eventId)
-        .then(function (response) {
-                return response.json();
-            }).then(function (data) {
+        .then(function (status) {
+                console.log(status);
                 window.location = '#event' + eventId;
             });
     }
@@ -79,8 +77,10 @@ define(['./template.js', './clientStorage.js'], function (template, clientStorag
                 if (!data) {
                     console.log("falha ao obter evento");
                 } else {
-                    clientStorage.addEvent(data);
-                    alert("Evento armazenado com sucesso.");
+                    var resolve = clientStorage.addEvent(data);
+                    resolve.then(function (status) {
+                        alert(status);
+                    });
                 }
             });
     }

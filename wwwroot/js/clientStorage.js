@@ -19,16 +19,21 @@ define([], function () {
         return new Promise(function (resolve, reject) {
 
             var keyValuePair = [];
-
-            
-            keyValuePair.push({ key: String(event.eventId), value: event });
-
-            keyValuePair = keyValuePair.sort(function (a, b) { return b.key - a.key });
-
-            eventInstance.setItems(keyValuePair)
-                .then(function () {
-                    resolve();
-                });
+            var eventAlready = getEventDetail(event.eventId);
+            eventAlready.then(function (result){
+                if (!result){
+                    keyValuePair.push({ key: String(event.eventId), value: event });
+    
+                    keyValuePair = keyValuePair.sort(function (a, b) { return b.key - a.key });
+        
+                    eventInstance.setItems(keyValuePair)
+                        .then(function () {
+                            resolve('Evento armazenado com sucesso.');
+                        });
+                } else {
+                    resolve('Evento já armazenado.');
+                }
+            });
         });
     }
 
